@@ -1,0 +1,25 @@
+<h1 class="display-4">Notes!</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Title</th>
+            <th>Note</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% articles.forEach(function(article){ %>
+            <tr>
+                <td><%= article.subj %></td>
+                <td><%= article.title %></td>
+                <td><%= article.body %></td>
+                <td>
+                    <form class="d-inline" action="/articles/delete/<%= article.id %>" method="post">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
