@@ -251,7 +251,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     onlyAllowOrigins: [
-      'https://notesmonitor.herokuapp.com/',
+      'https://notesmonitor.herokuapp.com',
     ],
 
 
