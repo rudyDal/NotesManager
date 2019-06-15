@@ -7,6 +7,25 @@
 
 module.exports = {
 
+    home:function(req,res){
+        Users.find({}).exec(function(err, subjects){
+            if(err){
+                res.send(500, {error: 'Database Error'});
+            }
+            res.view('pages/homepage', {sub:subjects});
+        });
+
+    },
+
+    filter:function(req,res){
+        Articles.find({creator:req.params.id}).exec(function(err, articles){
+            if(err){
+                res.send(500, {error: 'Database Error'});
+            }
+            res.view('list', {articles:articles});
+        });
+
+    },
     list:function(req, res){
         Articles.find({}).exec(function(err, articles){
             if(err){
@@ -20,7 +39,7 @@ module.exports = {
         var title = req.body.title;
         var body = req.body.body;
 
-        let subjects = {}; 
+        let subjects = {};  
         let existingSub = await Users.findOne({subject: sub});
         if(existingSub){
             subjects = existingSub;

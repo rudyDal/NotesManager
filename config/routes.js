@@ -19,11 +19,13 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': { view: 'pages/homepage' },
+  '/': 'articles/home',
   'GET /articles/list': 'articles/list',
   '/articles/add': { view: 'add' },
   'POST /articles/create': 'articles/create',
   'POST /articles/delete/:id': 'articles/delete',
+  'POST /articles/filter/:id': 'articles/filter',
+  
 
 
 
